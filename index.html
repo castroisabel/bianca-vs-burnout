@@ -257,7 +257,7 @@ function hairLong(px, o, b, c1, c2) { // cacheado até o ombro
   px(-3 + o, -27 + b, 1, 1, c2); px(-5 + o, -23 + b, 1, 1, c2); px(0 + o, -28 + b, 1, 1, c2); px(-6 + o, -22 + b, 1, 1, c2);
 }
 const BIA = {skin:'#c48a5e', skinD:'#a56e47', hair:'#141016', hairL:'#3b3142', top:'#4a5a2a', topD:'#4a5a2a', mid:'#4a5a2a',
-  shorts:'#5f6b35', trim:'#c8b77a', leg:'#c48a5e', foot:'#c48a5e', arm:'#c48a5e', glove:'#a3172a', band:'#c8b77a', camo:['#33401c', '#6b5a36', '#9a9a62'], hairFn: hairShort};
+  shorts:'#5f6b35', trim:'#c8b77a', leg:'#c48a5e', foot:'#c48a5e', arm:'#c48a5e', glove:'#a3172a', band:'#c8b77a', camo:['#33401c', '#6b5a36', '#9a9a62'], glasses:'#c27a2c', hairFn: hairShort};
 const ISA = {skin:'#f2cfae', skinD:'#d9a985', hair:'#4a2a1c', hairL:'#73462f', top:'#3f8f7f', topD:'#2f6e61', mid:'#3f8f7f',
   shorts:'#3d5a99', trim:null, leg:'#3d5a99', foot:'#eeeeee', arm:'#3f8f7f', glove:null, band:null, hairFn: hairLong};
 
@@ -288,6 +288,10 @@ function head(px, o, b, S, opt) {
   if (opt.blink) px(2 + o, -22 + b, 1, 1, '#0d0a0e'); else px(2 + o, -23 + b, 1, 2, '#0d0a0e');
   if (opt.blush) px(0 + o, -21 + b, 2, 1, '#e0806e');
   if (opt.smile) px(2 + o, -21 + b, 2, 1, '#6a2626');
+  if (S.glasses) { // óculos redondos, aro âmbar
+    const c = S.glasses;
+    px(2 + o, -24 + b, 2, 1, c); px(2 + o, -21 + b, 2, 1, c); px(1 + o, -23 + b, 1, 2, c); px(4 + o, -23 + b, 1, 2, c); px(-1 + o, -23 + b, 2, 1, c);
+  }
   S.hairFn(px, o, b, S.hair, S.hairL);
 }
 function puppet(x, y, f, pose, S, opt = {}) {
